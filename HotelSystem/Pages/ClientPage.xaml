@@ -1,0 +1,90 @@
+﻿<Page x:Class="HotelSystem.Pages.ClientPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:HotelSystem.Pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="1080" d:DesignWidth="1980"
+      Title="ClientPage">
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition Width="9*"></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="3*"></RowDefinition>
+            <RowDefinition Height="4*"></RowDefinition>
+            <RowDefinition Height="23*"></RowDefinition>
+            <RowDefinition Height="3*"></RowDefinition>
+        </Grid.RowDefinitions>
+        <StackPanel Background="Black" Grid.ColumnSpan="3">
+            <TextBlock HorizontalAlignment="Center" FontSize="80" FontFamily="Century" Foreground="White">GRAND HOTEL SYSTEM</TextBlock>
+        </StackPanel>
+        <StackPanel VerticalAlignment="Center" HorizontalAlignment="Left">
+            <Button x:Name="BtnBack" Click="BtnBack_Click" Margin="20 0 0 0" FontSize="35" FontFamily="Courier new" Background="#E5E4E2" Foreground="Black">Выйти</Button>
+        </StackPanel>
+        <ListView SelectionChanged="LvHotels_SelectionChanged"  Grid.Column="1" Grid.Row="2" x:Name="LvHotels" BorderBrush="#E5E4E2" Background="#E5E4E2" ScrollViewer.HorizontalScrollBarVisibility="Disabled" ScrollViewer.VerticalScrollBarVisibility="Visible" d:ItemsSource="{d:SampleData ItemCount=30}">
+            <ListView.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <UniformGrid Columns="1"></UniformGrid>
+                </ItemsPanelTemplate>
+            </ListView.ItemsPanel>
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel Width="1580" Orientation="Horizontal" Background="White">
+                        <StackPanel.Effect>
+                            <DropShadowEffect Opacity="10" RenderingBias="Performance" Direction="270" ShadowDepth="3" BlurRadius="30" />
+                        </StackPanel.Effect>
+                        <StackPanel Orientation="Horizontal" >
+                            <Border BorderBrush="Black" BorderThickness="3" Margin="40" Width="450" Height="200">
+                                <Border.Background>
+                                    <ImageBrush x:Name="image" Stretch="UniformToFill"/>
+                                </Border.Background>
+                                <Image Width="450" Height="200" Source="{Binding Photo}"/>
+                            </Border>
+                            <StackPanel VerticalAlignment="Center">
+                                <TextBlock FontFamily="Courier new" Foreground="Black" FontSize="40" Text="{Binding CountryName, StringFormat=Страна: {0}}"></TextBlock>
+                                <TextBlock FontFamily="Courier new" Foreground="Black" FontSize="40" Text="{Binding Name, StringFormat=Название: {0}}"></TextBlock>
+                                <TextBlock FontFamily="Courier new" Foreground="Black" FontSize="40" Text="{Binding Rate, StringFormat=Рейтинг: {0}}"></TextBlock>
+                                <TextBlock FontFamily="Courier new" Foreground="Black" FontSize="40" Text="{Binding Address, StringFormat=Адрес: {0}}"></TextBlock>
+                            </StackPanel>
+                        </StackPanel>
+                        
+                    </StackPanel>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+        <StackPanel VerticalAlignment="Center" Grid.Row="1" Grid.Column="1">
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Foreground="Black" FontSize="35" FontFamily="Courier new">Страна:</TextBlock>
+                <ComboBox SelectionChanged="CbCounties_SelectionChanged" x:Name="CbCounties" Width="350" Foreground="Black" FontSize="35" FontFamily="Courier new" Background="#E5E4E2">
+                    <ComboBox.ItemTemplate>
+                        <DataTemplate>
+                            <ComboBoxItem Content="{Binding Name}"></ComboBoxItem>
+                        </DataTemplate>
+                    </ComboBox.ItemTemplate>
+                </ComboBox>
+                <TextBlock Background="#0000" Foreground="#0000">asd</TextBlock>
+                <TextBlock Foreground="Black" FontSize="35" FontFamily="Courier new">Количество звезд отеля:</TextBlock>
+                <ComboBox SelectionChanged="CbRateFilter_SelectionChanged" Foreground="Black" FontSize="35" FontFamily="Courier new" Background="#E5E4E2" Width="350" x:Name="CbRateFilter">
+                    <ComboBoxItem>1</ComboBoxItem>
+                    <ComboBoxItem>2</ComboBoxItem>
+                    <ComboBoxItem>3</ComboBoxItem>
+                    <ComboBoxItem>4</ComboBoxItem>
+                    <ComboBoxItem>5</ComboBoxItem>
+                </ComboBox>
+                <TextBlock Foreground="#0000">asd</TextBlock>
+                <Button Background="Black" Foreground="White" FontSize="35" FontFamily="Courier new" x:Name="RebootFilter" Click="RebootFilter_Click">Сбросить</Button>
+            </StackPanel>
+            <StackPanel>
+                <TextBox FontSize="35" Background="#E5E4E2" FontFamily="Courier new" x:Name="TbSearhc" TextChanged="TbSearhc_TextChanged"></TextBox>
+            </StackPanel>
+        </StackPanel>
+        <StackPanel VerticalAlignment="Center" Grid.Row="4" Grid.Column="1">
+            <TextBlock HorizontalAlignment="Center"><Hyperlink NavigateUri="PartnersPage.xaml" Foreground="Black" FontSize="35" FontFamily="courier new">Не нашли нужный вариант?</Hyperlink></TextBlock>
+        </StackPanel>
+    </Grid>
+</Page>

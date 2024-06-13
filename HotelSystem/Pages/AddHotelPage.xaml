@@ -1,0 +1,65 @@
+﻿<Page x:Class="HotelSystem.Pages.AddHotelPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:HotelSystem.Pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="1080" d:DesignWidth="1980"
+      Title="AddHotelPage">
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="3*"></RowDefinition>
+            <RowDefinition Height="4*"></RowDefinition>
+            <RowDefinition Height="23*"></RowDefinition>
+            <RowDefinition Height="3*"></RowDefinition>
+        </Grid.RowDefinitions>
+        <StackPanel Background="Black" Grid.ColumnSpan="3">
+            <TextBlock HorizontalAlignment="Center" FontSize="80" FontFamily="Century" Foreground="White">GRAND HOTEL SYSTEM</TextBlock>
+        </StackPanel>
+        <StackPanel VerticalAlignment="Center" HorizontalAlignment="Left">
+            <Button x:Name="BtnBack" Click="BtnBack_Click" Margin="20 0 0 0" FontSize="35" FontFamily="Courier new" Background="#E5E4E2" Foreground="Black" >Назад</Button>
+        </StackPanel>
+        <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center" Grid.Row="1" Grid.ColumnSpan="3">
+            <TextBlock FontSize="80" FontFamily="Courier New" >Добавление отеля</TextBlock>
+        </StackPanel>
+        <StackPanel Grid.Row="2">
+            <TextBlock FontSize="35" FontFamily="Courier new">Страна:</TextBlock>
+            <ComboBox x:Name="cbCounrty" FontSize="35" FontFamily="Courier new" Background="#E5E4E2" Foreground="Black">
+                <ComboBox.ItemTemplate>
+                    <DataTemplate>
+                        <ComboBoxItem Content="{Binding Name}"></ComboBoxItem>
+                    </DataTemplate>
+                </ComboBox.ItemTemplate>
+            </ComboBox>
+            <TextBlock  FontSize="35" FontFamily="Courier new">Название:</TextBlock>
+            <TextBox FontSize="35" FontFamily="Courier new" Background="#E5E4E2" Foreground="Black" x:Name="TbName"></TextBox>
+            <TextBlock FontSize="35" FontFamily="Courier new">Кол-во звезд:</TextBlock>
+            <ComboBox FontSize="35" FontFamily="Courier new" Background="#E5E4E2" Foreground="Black" x:Name="CbRate">
+                <ComboBoxItem>5</ComboBoxItem>
+                <ComboBoxItem>4</ComboBoxItem>
+                <ComboBoxItem>3</ComboBoxItem>
+                <ComboBoxItem>2</ComboBoxItem>
+                <ComboBoxItem>1</ComboBoxItem>
+            </ComboBox>
+            <TextBlock FontSize="35" FontFamily="Courier new">Адрес:</TextBlock>
+            <TextBox FontSize="35" FontFamily="Courier new" Background="#E5E4E2" Foreground="Black" x:Name="TbAddress"></TextBox>
+        </StackPanel>
+        <StackPanel Margin="20 0 0 0" Grid.Row="2" Grid.Column="1">
+            <StackPanel Background="#E5E4E2">
+                <Image x:Name="img" Source="{Binding Photo}" Height="400"></Image>
+            </StackPanel>
+            <TextBlock FontSize="25"></TextBlock>
+            <Button x:Name="OpenImg" Click="OpenImg_Click" FontSize="35" FontFamily="Courier new" Background="Black" Foreground="White">Открыть изображение</Button>
+        </StackPanel>
+        <StackPanel Grid.Column="1" Grid.Row="3">
+            <Button FontSize="35" FontFamily="Courier new" Background="Black" Foreground="White" x:Name="AddHotel" Click="AddHotel_Click">Добавить отель</Button>
+        </StackPanel>
+    </Grid>
+</Page>

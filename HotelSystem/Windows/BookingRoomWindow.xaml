@@ -1,0 +1,48 @@
+﻿<Window x:Class="HotelSystem.Windows.BookingRoomWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:HotelSystem.Windows"
+        mc:Ignorable="d"
+        Title="BookingRoomWindow" Height="350" Width="600">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition Width="10*"></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition></RowDefinition>
+            <RowDefinition Height="5*"></RowDefinition>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
+        <StackPanel  Background="Black" Grid.ColumnSpan="3">
+            <TextBlock HorizontalAlignment="Center" Foreground="White" FontSize="30" FontFamily="Courier new">Бронирование комнаты</TextBlock>
+        </StackPanel>
+        <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center" Orientation="Vertical" Grid.Row="1" Grid.Column="1">
+            <StackPanel Orientation="Horizontal">
+                <TextBlock  Foreground="Black" FontSize="18" FontFamily="Courier new">Цена за одну ночь:</TextBlock>
+                <TextBlock x:Name="TbCostForNight"  Foreground="Black" FontSize="18" FontFamily="Courier new"></TextBlock>
+            </StackPanel>
+            <TextBlock></TextBlock>
+            <StackPanel Orientation="Horizontal">
+            <TextBlock Foreground="Black" FontSize="18" FontFamily="Courier new">Выберите дату заселения:</TextBlock>
+            <DatePicker  Foreground="Black" FontSize="18" FontFamily="Courier new" x:Name="DpStart"></DatePicker>
+            </StackPanel>
+            <TextBlock></TextBlock>
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Foreground="Black" FontSize="18" FontFamily="Courier new">Выберите дату выселения:</TextBlock>
+                <DatePicker  x:Name="DpEnd" Foreground="Black" FontSize="18" FontFamily="Courier new"></DatePicker>
+
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <Button x:Name="BtnCheckPrice" Click="BtnCheckPrice_Click" Foreground="White" Background="Black" FontSize="18" FontFamily="Courier new" >Вычислить итоговую цену: </Button>
+                <TextBlock x:Name="TbCost" Foreground="Red" FontSize="18" FontFamily="Courier new"></TextBlock>
+            </StackPanel>
+            <TextBlock></TextBlock>
+            <Button Background="Black" Click='Button_Click' Foreground="White" FontSize="18" FontFamily="Courier new">Забронировать</Button>
+        </StackPanel>
+        <TextBlock x:Name="idRoom"></TextBlock>
+    </Grid>
+</Window>

@@ -1,0 +1,41 @@
+﻿<Page x:Class="HotelSystem.Pages.PartnersPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:HotelSystem.Pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="1080" d:DesignWidth="1980"
+      Title="PartnersPage">
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="3*"></RowDefinition>
+            <RowDefinition Height="4*"></RowDefinition>
+            <RowDefinition Height="23*"></RowDefinition>
+            <RowDefinition Height="3*"></RowDefinition>
+        </Grid.RowDefinitions>
+        <StackPanel Background="Black" Grid.ColumnSpan="3">
+            <TextBlock HorizontalAlignment="Center" FontSize="80" FontFamily="Century" Foreground="White">GRAND HOTEL SYSTEM</TextBlock>
+        </StackPanel>
+        <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center" Grid.Row="1" Grid.ColumnSpan="3">
+            <TextBlock FontSize="80" FontFamily="Courier New" >Наши партнеры</TextBlock>
+        </StackPanel>
+        <StackPanel Grid.Row="2">
+            <Image x:Name="ImgQr1" Height="500"></Image>
+            <TextBlock HorizontalAlignment="Center" Foreground="Black" FontFamily="Courier new" FontSize="40">OZON Hotels</TextBlock>
+        </StackPanel>
+        <StackPanel Grid.Row="2" Grid.Column="2">
+            <Image x:Name="ImgQr2" Height="500"></Image>
+            <TextBlock HorizontalAlignment="Center" Foreground="Black" FontFamily="Courier new" FontSize="40">Ostrovok.RU</TextBlock>
+        </StackPanel>
+        <StackPanel HorizontalAlignment="Left" VerticalAlignment="Center">
+            <Button x:Name="BtnBack" Click="BtnBack_Click" Margin="20 0 0 0" FontSize="35" FontFamily="Courier new" Background="#E5E4E2" Foreground="Black">Назад</Button>
+        </StackPanel>
+    </Grid>
+</Page>
